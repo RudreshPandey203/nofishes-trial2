@@ -71,9 +71,9 @@
             <h2 class="search-text-heading">Type your url here</h2>
             <div class="row">
                 <form action="{{url_for('predict')}}#search-bar-zone" method="post" class="input-group">
-                    <input type="url" class="form-control" name="url" placeholder="search-url">
-                    <button class="btn btn-outline-secondary spinButton btn-bg-grad" type="submit" onclick="makespin.style.animationPlayState='running'">Check</button>
-                    <button class="btn btn-outline-secondary  btn-bg-grad ref" class="" type="button"
+                    <input type="text" class="form-control" id="urlInput" name="url" placeholder="https://www.example.com" required>
+                    <button class="btn btn-outline-secondary dd spinButton btn-bg-grad" type="submit" onclick="">Check</button>
+                    <button class="btn btn-outline-secondary dd btn-bg-grad ref" class="" type="button"
                         onclick="window.location.href = '/#search-bar-zone';">
                         Refresh
                     </button>
@@ -83,18 +83,21 @@
                 
                 <h3 style="color: red; padding-top: 200px;">{{prediction_text}}</h3>
                 
-
+            
             </div>
         </div>
+        <!-- <div id="reportweb">
+            <h5 class="textreport">Do you want to report this website phishing? <span><a class="reportlink">Report</a></span></h5>
+        </div> -->
     </section>
     <section id="add-bar-zone">
         <div class="add-type-bar">
             <h2 class="add-text-heading">Type url to report the phishing website</h2>
             <div class="row">
                 <form action="{{url_for('add')}}#add-bar-zone" method="post" class="input-group">
-                    <input type="url" class="form-control" placeholder="Add-url" name="add" value="{{url_add}}">
-                    <button class="btn btn-outline-secondary btn-bg-grad" type="submit" onclick="">Report</button>
-                    <button class="btn btn-outline-secondary btn-bg-grad ref" type="button"
+                    <input type="url" class="form-control" placeholder="Add-url" name="add" value="{{url_add}}" placeholder="https://www.example.com" required>
+                    <button class="btn btn-outline-secondary btn-bg-grad dd2" type="submit" onclick="">Report</button>
+                    <button class="btn btn-outline-secondary btn-bg-grad dd2 ref" type="button"
                         onclick="window.location.href = '/#add-bar-zone';">
                         Refresh
                     </button>
@@ -122,7 +125,7 @@
                     <textarea class="form-control mx-auto widl w-50" id="message" name="message"
                         required></textarea><br>
 
-                    <button class="btn btn-outline-secondary btn-bg-grad" type="submit" onclick="">Submit</button>
+                    <button class="btn btn-outline-secondary btn-bg-grad dd" type="submit" onclick="">Submit</button>
                 </form>
             </div>
 
@@ -131,6 +134,15 @@
 
 
     </section>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // JavaScript code to show/hide the 'reportweb' div based on Flask value
+            const testno =  testno ; // Replace with the actual Flask variable
+            if (testno === 1) {
+                document.getElementById('reportweb').style.display = 'block';
+            }
+        });
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>

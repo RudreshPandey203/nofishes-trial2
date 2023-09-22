@@ -52,12 +52,32 @@
     window.addEventListener('scroll', updateURL);
 
     // Initial URL update
-    updateURL();
+    // updateURL();
 
-    const spinButton = document.getElementsByClassName('spinButton');
-    const spinningImage = document.getElementsByClassName('imagespin');
+    // const spinButton = document.getElementsByClassName('spinButton');
+    // const spinningImage = document.getElementsByClassName('imagespin');
     
-    spinButton.addEventListener('click', () => {
-        spinningImage.classList.add('makespin');
-    });
-    
+    // spinButton.addEventListener('click', () => {
+    //     spinningImage.classList.add('makespin');
+    // });
+    // function validateURL() {
+    //     const inputElement = document.getElementById("urlInput");
+    //     const url = inputElement.value.trim();
+
+    //     // Regular expression to match various URL formats
+    //     const urlRegex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})(\/\S*)?$/;
+
+    //     if (urlRegex.test(url)) {
+    //         // Valid URL
+    //         alert("Valid URL: " + url);
+    //         // You can perform further actions here
+    //     } else {
+    //         // Invalid URL
+    //         alert("Invalid URL. Please enter a valid URL.");
+    //     }
+    // }
+    // const testno =  testno ; // Replace with the actual Flask variable
+    // if (testno === 1) {
+    //     document.getElementById('reportweb').style.display = 'block';
+    // }
+    console.log(testno)

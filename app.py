@@ -16,9 +16,8 @@ def predict():
     if request.method == 'POST':
         url_send = request.form['url']
         print(url_send)
-    for i in range (100000000):
-        print()
-    return render_template('index.html', prediction_text=url_send)
+        testno = 1
+    return render_template('index.html', prediction_text=url_send,testno={})
 
 @app.route("/add#add-bar-zone", methods=['POST'])
 def add():
