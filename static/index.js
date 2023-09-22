@@ -47,19 +47,6 @@
 //         button.style.backgroundColor = 'purple';
 //     }
     // Get all section elements
-    const sections = document.querySelectorAll('section');
-
-    // Function to update the URL based on the current section
-    function updateURL() {
-        for (const section of sections) {
-            const rect = section.getBoundingClientRect();
-            if (rect.top >= 0 && rect.top < window.innerHeight) {
-                const sectionId = section.getAttribute('id');
-                history.replaceState(null, null, `#${sectionId}`);
-                break;
-            }
-        }
-    }
 
     // Listen to scroll events
     window.addEventListener('scroll', updateURL);
@@ -67,26 +54,10 @@
     // Initial URL update
     updateURL();
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const submitBtn = document.getElementById('submitBtn');
-        const loading = document.getElementById('loading');
-        const form = document.querySelector('form');
+    const spinButton = document.getElementsByClassName('spinButton');
+    const spinningImage = document.getElementsByClassName('imagespin');
     
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-    
-            // Show the loading animation
-            loading.style.display = 'block';
-    
-            // Simulate a delay (e.g., an asynchronous operation)
-            setTimeout(function () {
-                // Hide the loading animation
-                loading.style.display = 'none';
-    
-                // Process the form submission here
-                // For demonstration purposes, we're simply submitting the form
-                form.submit();
-            }, 2000); // Change this delay as needed
-        });
+    spinButton.addEventListener('click', () => {
+        spinningImage.classList.add('makespin');
     });
     

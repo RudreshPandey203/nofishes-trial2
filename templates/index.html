@@ -24,7 +24,7 @@
         rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="../static/index.css">
-    
+
 </head>
 
 <body>
@@ -34,10 +34,9 @@
             <!-- Nav Bar -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="brand-name">
-                    <div class="brand-img"><img class="brand"
-                            src="../static/images/fish-bones-crop.PNG" />
-                    </div> 
-                    <img class="brand-na" src="../static/images/no-fishes-text.PNG"/>
+                    <div class="brand-img"><img class="brand" src="../static/images/fish-bones-crop.PNG" />
+                    </div>
+                    <img class="brand-na" src="../static/images/no-fishes-text.PNG" />
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -56,7 +55,7 @@
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">About us</a>
+                            <a class="nav-link" href="{{ url_for('another_page') }}">About us</a>
                         </li>
                     </ul>
                 </div>
@@ -66,170 +65,49 @@
             </div>
         </div>
     </section>
-    
-    <!-- {{url_for('predict')}} -->
+
     <section id="search-bar-zone">
         <div class="search-type-bar">
             <h2 class="search-text-heading">Type your url here</h2>
             <div class="row">
                 <form action="{{url_for('predict')}}#search-bar-zone" method="post" class="input-group">
-                    <input type="url" class="form-control" name="url" placeholder="search-url" >
-                    <button class="btn btn-outline-secondary btn-bg-grad" type="submit" onclick="">Check</button>
-                    <button class="btn btn-outline-secondary btn-bg-grad ref" type="button"
-                        onclick="window.location.href = '/';">
+                    <input type="url" class="form-control" name="url" placeholder="search-url">
+                    <button class="btn btn-outline-secondary spinButton btn-bg-grad" type="submit" onclick="makespin.style.animationPlayState='running'">Check</button>
+                    <button class="btn btn-outline-secondary  btn-bg-grad ref" class="" type="button"
+                        onclick="window.location.href = '/#search-bar-zone';">
                         Refresh
                     </button>
-
+                    
 
                 </form>
-                <h3 style="color:red">{{prediction_text}}</h3>
+                
+                <h3 style="color: red; padding-top: 200px;">{{prediction_text}}</h3>
+                
 
-                <!-- <div class="col-lg-4 col-md-12">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="search-word"
-                            aria-label="search-word with two button addons">
-                        <button class="btn btn-outline-secondary btn-bg-grad" type="button">None</button>
-                        <button class="btn btn-outline-secondary btn-bg-grad" type="button">OK</button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="search-word"
-                            aria-label="search-word with two button addons">
-                        <button class="btn btn-outline-secondary btn-bg-grad" type="button">None</button>
-                        <button class="btn btn-outline-secondary btn-bg-grad" type="button">OK</button>
-                    </div>
-                </div> -->
             </div>
         </div>
-        <!-- <div class="platform-selection">
-            <h3 class="choose-platform">Choose Platform:</h3></a>
-            <div class="socials">
-                <div class="row">
-                    <div class="col-4 ">
-                        <div class="social-media-handle">
-                            <a class="search-link" href=""><i class="fa-brands fa-facebook fa-4x"
-                                    style="color: #1877f2;"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="social-media-handle">
-                            <a class="search-link" href=""><i class="fa-brands fa-linkedin fa-4x"
-                                    style="color: #0a66c2;"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="social-media-handle">
-                            <a class="search-link" href=""><i class="fa-brands fa-reddit fa-4x"
-                                    style="color: #f74300;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </section>
     <section id="add-bar-zone">
         <div class="add-type-bar">
             <h2 class="add-text-heading">Type url to report the phishing website</h2>
             <div class="row">
-                <form action="" method="post" class="input-group">
-                    <input type="url" class="form-control" placeholder="Add-url">
+                <form action="{{url_for('add')}}#add-bar-zone" method="post" class="input-group">
+                    <input type="url" class="form-control" placeholder="Add-url" name="add" value="{{url_add}}">
                     <button class="btn btn-outline-secondary btn-bg-grad" type="submit" onclick="">Report</button>
+                    <button class="btn btn-outline-secondary btn-bg-grad ref" type="button"
+                        onclick="window.location.href = '/#add-bar-zone';">
+                        Refresh
+                    </button>
+
 
                 </form>
+                
+                <h3 style="padding-top: 200px;">{{thankmsg}}</h3>
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <!-- 
-    <section id="pricing">
-
-
-        <div class="price-header">
-            <h2 class="price-heading">Go premium with you searches.</h2>
-            <p>Helps you get more specific with your interests.</p>
-        </div>
-        <div class="tagged">
-            <div class=" row row-cols-1 row-cols-md-3 mb-3 text-center">
-                <div class="price-tag pricing-col col-md-6 col-lg-4">
-                    <div class="card mb-4 rounded-3 shadow-sm regular">
-                        <div class="card-header py-3">
-                            <h3>Regular</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-bd">
-                                <h2>Free</h2>
-                                <p>3 keywords/search.</p>
-                                <p>Surveys latest 500.</p>
-                                <p>Contains Adss.</p>
-                                <button type="button" class="pricing-btn w-100 btn btn-lg btn-outline-light">Sign
-                                    up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="price-tag pricing-col col-md-6 col-lg-4">
-                    <div class="card mb-4 rounded-3 shadow-sm Gold">
-                        <div class="card-header py-3">
-                            <h3>Gold</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-bd">
-                                <h2>49$/year</h2>
-                                <p>8 keywords/search.</p>
-                                <p>Surveys latest 2500.</p>
-                                <p>No Ads.</p>
-                                <button type="button" class="pricing-btn w-100 btn btn-lg btn-outline-light">Sign
-                                    up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="price-tag pricing-col col-md-12 col-lg-4">
-                    <div class="card mb-4 rounded-3 shadow-sm premium">
-                        <div class="card-header py-3">
-                            <h3>Premium</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-bd">
-                                <h2>$79/year</h2>
-                                <p>Unlimited Keywords</p>
-                                <p>Unlimited surveys</p>
-                                <p>Can be set in user specific time span</p>
-                                <p>No Ads</p>
-                                <button type="button" class="pricing-btn w-100 btn btn-lg btn-outline-light">Sign
-                                    up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </section> -->
-    <!-- Footer -->
-
-<section id="contact">
-        <!-- <div class="container mt-5">
-            <h2 class="mb-3">Contact Form</h2>
-            <form id="contactForm">
-                <div class="mb-3">
-                    <label class="form-label" for="name">Name</label>
-                    <input class="form-control" type="text" id="name" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control" type="email" id="email" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea class="form-control" id="message" required></textarea>
-                </div>
-                <button class="btn btn-danger" type="submit">Send</button>
-            </form>
-        </div> -->
+    <section id="contact">
         <div class="formouter">
             <h2 class="contacthead">Contact Form</h2>
             <div class="row">
@@ -241,34 +119,22 @@
                     <input class="form-control mx-auto" type="email" id="email" name="email" required><br>
 
                     <label for="message">Message:</label><br>
-                    <textarea class="form-control mx-auto widl w-50" id="message" name="message" required></textarea><br>
+                    <textarea class="form-control mx-auto widl w-50" id="message" name="message"
+                        required></textarea><br>
 
                     <button class="btn btn-outline-secondary btn-bg-grad" type="submit" onclick="">Submit</button>
                 </form>
             </div>
 
-        </div>
-        <!-- <div class="footer-contact-links1">
-            <h2 class="contact">Contact us</h2>
-            <div class="footer-contact-links">
-                <a class="footer-link" href="https://twitter.com/RudreshPandey_"><i
-                        class="stamps fa-brands fa-twitter fa-lg" style="color: #2d2d2d;"></i></a>
-                <a class="footer-link" href="https://www.linkedin.com/in/rudresh-pandey-45b35524b/"><i
-                        class="fa-brands fa-linkedin" style="color: #2d2d2d;"></i></a>
-                <a class="footer-link" href="https://www.instagram.com/rudreshpandey_/"> <i
-                        class="fa-lg stamps fa-brands fa-instagram" style="color: #2d2d2d;"></i></a>
-                <a class="footer-link" href=""><i class="stamps fa-solid fa-envelope fa-lg"
-                        style="color: #2d2d2d;"></i></a>
-            </div>
-        </div> -->
-        <p class="stickbottom">© Copyright 2023 NoFishes</p>
-        
+
+            <p class="stickbottom">© Copyright 2023 NoFishes</p>
+
 
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-        <script src="../static/index.js"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="../static/index.js"></script>
 </body>
 
 </html>
