@@ -67,4 +67,26 @@
     // Initial URL update
     updateURL();
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const form = document.querySelector('form');
+    
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            // Show the loading animation
+            loading.style.display = 'block';
+    
+            // Simulate a delay (e.g., an asynchronous operation)
+            setTimeout(function () {
+                // Hide the loading animation
+                loading.style.display = 'none';
+    
+                // Process the form submission here
+                // For demonstration purposes, we're simply submitting the form
+                form.submit();
+            }, 2000); // Change this delay as needed
+        });
+    });
     
